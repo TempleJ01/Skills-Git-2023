@@ -14,13 +14,24 @@ public class DinoAnimation : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			MyAnimator.SetBool ("walk", true);
-		} else {
-			MyAnimator.SetBool ("walk", false);
-		}
-		if (Input.GetKey (KeyCode.DownArrow)) {
+		} else if (Input.GetKey (KeyCode.DownArrow)) {
 			MyAnimator.SetBool ("dead", true);
-		} else {
-			MyAnimator.SetBool ("dead", false);
+		} else if (Input.GetKey (KeyCode.R)) {
+			MyAnimator.SetBool ("run", true);
+		} else if (Input.GetKey (KeyCode.Space)) {
+			MyAnimator.Play ("Jump");
 		}
+		else if (MyAnimator.GetBool("dead")==false)
+		{
+			MyAnimator.SetBool ("idle", true);
+			MyAnimator.SetBool ("walk", false);
+			MyAnimator.SetBool ("run", false);
+		}
+		else if (Input.GetKey (KeyCode.Q) && MyAnimator.GetBool("dead") == true){
+			MyAnimator.Play("Respawn");
+			MyAnimator.SetBool("dead", false);
+		}
+			
+		
 	}
 }
