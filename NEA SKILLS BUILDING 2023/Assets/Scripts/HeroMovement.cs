@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeroMovement : MonoBehaviour {
 
 	Rigidbody2D rb;
 	float speed;
+	int lives;
 	// Use this for initialization
 	void Start () {
 		speed = 5.1f;
+		lives = 2;
 		rb = GetComponent<Rigidbody2D> ();
 			
 	}
@@ -28,5 +31,16 @@ public class HeroMovement : MonoBehaviour {
 	{
 		Debug.Log("SPIKED RECEIVED!");
 		transform.SetPositionAndRotation (new Vector3 (-5.58f, 1.34f, 0), Quaternion.identity);
+		setLives ();
+	}
+
+	public void setLives(){
+
+		lives -= 1;
+
+		if (lives <= 0) {
+			Debug.Log ("End of game");
+			SceneManager.LoadScene ("Lost");
+		}
 	}
 }
