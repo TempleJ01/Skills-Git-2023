@@ -23,4 +23,10 @@ public class HeroMovement : MonoBehaviour {
 			rb.AddForce (Vector2.up * 300);
 		}
 	}
+
+	void resetPosition()
+	{
+		Debug.Log("SPIKED RECEIVED!");
+		transform.SetPositionAndRotation (new Vector3 (-5.58f, 1.34f, 0), Quaternion.identity);
+	}
 }

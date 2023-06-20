@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour {
 
+	GameObject Hero;
 
 	// Use this for initialization
 	void Start () {
-		
+		Hero = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -17,6 +18,7 @@ public class Spikes : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other) {
 
-		Debug.Log ("SPIKED!");
+		Debug.Log("SPIKED!");
+		Hero.SendMessage ("resetPosition");
 	}
 }
