@@ -42,7 +42,7 @@ public class HeroMovement : MonoBehaviour {
 
 		lives -= 1;
 
-		if (lives <= 0) {
+		if (lives <= 0 || vulnerable == true) {
 			Debug.Log ("End of game");
 			SceneManager.LoadScene ("Lost");
 		}
@@ -57,6 +57,14 @@ public class HeroMovement : MonoBehaviour {
 			Destroy (other.gameObject);
 			vulnerable = true;
 			Debug.Log ("vulnerable = true!");
+			StartCoroutine("VulnerableDeBuff");
 		}
+	}
+
+	IEnumerator VulnerableDeBuff()
+	{
+		yield return new WaitForSeconds (5f);
+		vulnerable = false;
+		Debug.Log ("vulnerable = false!");
 	}
 }
