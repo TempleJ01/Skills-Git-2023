@@ -23,6 +23,11 @@ public class TextController : MonoBehaviour {
 		gemCounter.text = "Gems: " + totalGems.Length.ToString ();
 		lives = Hero.GetComponent<HeroMovement> ().lives;
 		livesCounter.text = "Lives: " + lives;
-		gameTimer.text = Time.timeSinceLevelLoad.ToString("0.00");
+		gameTimer.text = Time.timeSinceLevelLoad.ToString ("0.00");
+
+		if (totalGems.Length == 0) {
+			Hero.SendMessage ("SpawnAlter");
+		}
 	}
 }
+
