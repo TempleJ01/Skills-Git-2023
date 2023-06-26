@@ -19,8 +19,13 @@ public class Alter : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Debug.Log ("End of game");
-			SceneManager.LoadScene ("Won");
+			if (SceneManager.GetActiveScene ().name == "Level 2") {
+				SceneManager.LoadScene ("Won");
+				Debug.Log ("Game Win!");
+			}
+			else{
+				SceneManager.LoadScene ("Level 2");
+			}
 		}
 	}
 }
