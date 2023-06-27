@@ -2414,7 +2414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd039fd283233b44b9f96246d371783d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 0}
+  coin: {fileID: 8300000, guid: f4c5c85a836c81b4aab5cb9de852161e, type: 3}
+  life: {fileID: 8300000, guid: 21ef97cb92b024544b0282fc3e5f5fcd, type: 3}
+  bomb: {fileID: 8300000, guid: 3d7602ff95d3d0942b4d8bdaac3be8ac, type: 3}
 --- !u!82 &1138083020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2425,7 +2427,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4c5c85a836c81b4aab5cb9de852161e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
