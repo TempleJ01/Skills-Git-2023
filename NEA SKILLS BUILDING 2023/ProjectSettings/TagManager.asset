@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - leftMarker
+  - vulnerable
   - redGem
   - extraLife
-  - vulnerable
+  - rightMarker
   layers:
   - Default
   - TransparentFX
@@ -43,10 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: background
-    uniqueID: 2153419703
-    locked: 0
-  - name: foreground
-    uniqueID: 1938984075
     locked: 0
