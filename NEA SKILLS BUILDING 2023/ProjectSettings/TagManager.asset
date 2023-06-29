@@ -9,6 +9,7 @@ TagManager:
   - redGem
   - extraLife
   - rightMarker
+  - spawner
   layers:
   - Default
   - TransparentFX

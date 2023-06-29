@@ -8,7 +8,7 @@ public class bombSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("Spawner", 2, 2);
+		InvokeRepeating ("Spawn", Random.Range(2f,5f), Random.Range(5f,7f));
 	}
 	
 	// Update is called once per frame
@@ -16,7 +16,7 @@ public class bombSpawner : MonoBehaviour {
 		
 	}
 
-	void Spawner() {
-		Instantiate (bomb, new Vector3 (34, 10, 0), Quaternion.identity);
+	void Spawn() {
+		Instantiate (bomb, (this.gameObject.transform.position), Quaternion.identity);
 	}
 }
