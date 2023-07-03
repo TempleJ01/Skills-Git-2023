@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour {
 
+	GameObject Hero;
+
 	// Use this for initialization
 	void Start () {
-		Destroy (this.gameObject, 5);
+		Hero = GameObject.FindGameObjectWithTag ("Player");
+		Destroy (this.gameObject, 4);
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2(Random.Range(-1f,1f), Random.Range(-2f,0f)), ForceMode2D.Impulse);
 	}
 	
@@ -16,6 +19,8 @@ public class SelfDestruct : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
+		Hero.SendMessage ("scoreIncrease");
 		Debug.Log ("A bomb was destroyed");
+
 	}
 }

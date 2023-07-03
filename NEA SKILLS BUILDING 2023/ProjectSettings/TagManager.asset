@@ -10,6 +10,7 @@ TagManager:
   - extraLife
   - rightMarker
   - spawner
+  - boom
   layers:
   - Default
   - TransparentFX

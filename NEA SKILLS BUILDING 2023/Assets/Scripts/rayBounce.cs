@@ -9,10 +9,12 @@ public class rayBounce : MonoBehaviour {
 	public float liftForce;
 	public float damping;
 	public float activeDistance;
+	public float rand;
 
 	// Use this for initialization
 	void Start () {
 		bomb = GetComponent<Rigidbody2D> ();
+		rand = Random.Range (0.5f, 2f);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class rayBounce : MonoBehaviour {
 			float distance = Mathf.Abs (hit.point.y - transform.position.y);
 			float heightError =(floatHeight - distance);
 			float force = liftForce * heightError - bomb.velocity.y * damping;
-			bomb.AddForce (Vector3.up * force);
+			bomb.AddForce (Vector3.up * force * rand);
 		}
 	}
 		

@@ -11,6 +11,9 @@ public class TextController : MonoBehaviour {
 	int lives;
 	GameObject Hero;
 	public TextMeshPro gameTimer;
+	public TextMeshPro scoreCounter;
+	GameObject timedBomb;
+	int score;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +22,13 @@ public class TextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		totalGems = GameObject.FindGameObjectsWithTag ("redGem");
-		gemCounter.text = "Gems: " + totalGems.Length.ToString ();
 		lives = Hero.GetComponent<HeroMovement> ().lives;
 		livesCounter.text = "Lives: " + lives;
 		gameTimer.text = Time.timeSinceLevelLoad.ToString ("0.00");
+		score = Hero.GetComponent<HeroMovement> ().score;
+		scoreCounter.text = "Score: " + score;
+		totalGems = GameObject.FindGameObjectsWithTag ("redGem");
+		gemCounter.text = "Gems: " + totalGems.Length.ToString ();
 
 		if (totalGems.Length == 0) {
 			Hero.SendMessage ("SpawnAlter");

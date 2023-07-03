@@ -9,6 +9,7 @@ public class HeroMovement : MonoBehaviour {
 	float speed;
 	public int lives;
 	bool vulnerable;
+	public int score;
 
 
 	// Use this for initialization
@@ -38,6 +39,12 @@ public class HeroMovement : MonoBehaviour {
 		setLives ();
 	}
 
+	void scoreIncrease()
+	{
+		score += 100;
+		Debug.Log (score);
+	}
+
 	public void setLives(){
 
 		lives -= 1;
@@ -57,7 +64,10 @@ public class HeroMovement : MonoBehaviour {
 			Destroy (other.gameObject);
 			vulnerable = true;
 			Debug.Log ("vulnerable = true!");
-			StartCoroutine("VulnerableDeBuff");
+			StartCoroutine ("VulnerableDeBuff");
+		} else if (other.gameObject.tag == "boom") {
+			Destroy (other.gameObject);
+			setLives ();
 		}
 	}
 

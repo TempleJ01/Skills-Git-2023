@@ -8,7 +8,7 @@ public class bombSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("Spawn", Random.Range(2f,5f), Random.Range(5f,7f));
+		InvokeRepeating ("Spawn", Random.Range(2f,5f), Random.Range(2f,4f));
 	}
 	
 	// Update is called once per frame
