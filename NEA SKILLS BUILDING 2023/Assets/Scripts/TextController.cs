@@ -27,12 +27,15 @@ public class TextController : MonoBehaviour {
 		gameTimer.text = Time.timeSinceLevelLoad.ToString ("0.00");
 		score = Hero.GetComponent<HeroMovement> ().score;
 		scoreCounter.text = "Score: " + score;
+
+
+		/*
 		totalGems = GameObject.FindGameObjectsWithTag ("redGem");
 		gemCounter.text = "Gems: " + totalGems.Length.ToString ();
 
 		if (totalGems.Length == 0) {
 			Hero.SendMessage ("SpawnAlter");
-		}
+		}*/
 	}
 }
 

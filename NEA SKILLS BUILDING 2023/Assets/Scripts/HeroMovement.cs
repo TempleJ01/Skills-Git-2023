@@ -10,6 +10,7 @@ public class HeroMovement : MonoBehaviour {
 	public int lives;
 	bool vulnerable;
 	public int score;
+	bool immune;
 
 
 	// Use this for initialization
@@ -45,9 +46,17 @@ public class HeroMovement : MonoBehaviour {
 		Debug.Log (score);
 	}
 
+	void bigScoreIncrease()
+	{
+		score += 200;
+		Debug.Log (score);
+	}
+
 	public void setLives(){
 
 		lives -= 1;
+		immune = true;
+		StartCoroutine ("immuneTimer");
 
 		if (lives <= 0 || vulnerable == true) {
 			Debug.Log ("End of game");
@@ -77,4 +86,11 @@ public class HeroMovement : MonoBehaviour {
 		vulnerable = false;
 		Debug.Log ("vulnerable = false!");
 	}
+	IEnumerator immuneTimer()
+	{
+		yield return new WaitForSeconds (2f);
+		immune = false;
+	}
+
+
 }

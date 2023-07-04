@@ -10,7 +10,7 @@ public class SelfDestruct : MonoBehaviour {
 	void Start () {
 		Hero = GameObject.FindGameObjectWithTag ("Player");
 		Destroy (this.gameObject, 4);
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2(Random.Range(-1f,1f), Random.Range(-2f,0f)), ForceMode2D.Impulse);
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2(Random.Range(-1f,1f), Random.Range(-5f,0f)), ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame
@@ -19,8 +19,10 @@ public class SelfDestruct : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
-		Hero.SendMessage ("scoreIncrease");
+		Hero.SendMessage ("scoreIncrease", SendMessageOptions.DontRequireReceiver);
 		Debug.Log ("A bomb was destroyed");
+
+
 
 	}
 }
