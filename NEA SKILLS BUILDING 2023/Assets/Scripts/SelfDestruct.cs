@@ -19,10 +19,9 @@ public class SelfDestruct : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
-		Hero.SendMessage ("scoreIncrease", SendMessageOptions.DontRequireReceiver);
-		Debug.Log ("A bomb was destroyed");
-
-
-
+		if (Hero != null) {
+			Hero.SendMessage ("scoreIncrease", SendMessageOptions.DontRequireReceiver);
+			Debug.Log ("A bomb was destroyed");
+		}
 	}
 }

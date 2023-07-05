@@ -19,8 +19,9 @@ public class bouncyBomb : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
-		Hero.SendMessage ("bigScoreIncrease", SendMessageOptions.DontRequireReceiver);
-		Debug.Log ("A blue bomb was destroyed");
-
+		if (Hero != null) {
+			Hero.SendMessage ("bigScoreIncrease", SendMessageOptions.DontRequireReceiver);
+			Debug.Log ("A blue bomb was destroyed");
+		}
 	}
 }

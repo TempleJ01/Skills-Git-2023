@@ -11,6 +11,7 @@ public class HeroMovement : MonoBehaviour {
 	bool vulnerable;
 	public int score;
 	bool immune;
+	SpriteRenderer spriteRender;
 
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class HeroMovement : MonoBehaviour {
 		lives = 3;
 		vulnerable = false;
 		rb = GetComponent<Rigidbody2D> ();
+		spriteRender = GetComponent<SpriteRenderer> ();
 			
 	}
 	
@@ -42,25 +44,31 @@ public class HeroMovement : MonoBehaviour {
 
 	void scoreIncrease()
 	{
-		score += 100;
-		Debug.Log (score);
+		if (this.gameObject != null) {
+			score += 100;
+			Debug.Log (score);
+		}
 	}
 
 	void bigScoreIncrease()
 	{
-		score += 200;
-		Debug.Log (score);
+		if (this.gameObject != null) {
+			score += 200;
+			Debug.Log (score);
+		}
 	}
 
 	public void setLives(){
-
+		if(immune == false){
 		lives -= 1;
 		immune = true;
+			spriteRender.color = Color.magenta;
 		StartCoroutine ("immuneTimer");
 
-		if (lives <= 0 || vulnerable == true) {
-			Debug.Log ("End of game");
-			SceneManager.LoadScene ("Lost");
+			if (lives <= 0 || vulnerable == true) {
+				Debug.Log ("End of game");
+				SceneManager.LoadScene ("Lost");
+			}
 		}
 	}
 
@@ -89,6 +97,7 @@ public class HeroMovement : MonoBehaviour {
 	IEnumerator immuneTimer()
 	{
 		yield return new WaitForSeconds (2f);
+		spriteRender.color = Color.white;
 		immune = false;
 	}
 
