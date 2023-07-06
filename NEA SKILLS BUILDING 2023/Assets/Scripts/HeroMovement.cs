@@ -10,6 +10,7 @@ public class HeroMovement : MonoBehaviour {
 	public int lives;
 	bool vulnerable;
 	public int score;
+	public int highScore;
 	bool immune;
 	SpriteRenderer spriteRender;
 
@@ -19,9 +20,11 @@ public class HeroMovement : MonoBehaviour {
 		speed = 5.1f;
 		lives = 3;
 		vulnerable = false;
+		immune = false;
 		rb = GetComponent<Rigidbody2D> ();
 		spriteRender = GetComponent<SpriteRenderer> ();
-			
+		score = 0;
+		highScore = PlayerPrefs.GetInt ("highScore");
 	}
 	
 	// Update is called once per frame
@@ -46,6 +49,9 @@ public class HeroMovement : MonoBehaviour {
 	{
 		if (this.gameObject != null) {
 			score += 100;
+			if (score > highScore) {
+				highScore = score;
+			}
 			Debug.Log (score);
 		}
 	}
@@ -54,6 +60,9 @@ public class HeroMovement : MonoBehaviour {
 	{
 		if (this.gameObject != null) {
 			score += 200;
+			if (score > highScore) {
+				highScore = score;
+			}
 			Debug.Log (score);
 		}
 	}
@@ -67,6 +76,8 @@ public class HeroMovement : MonoBehaviour {
 
 			if (lives <= 0 || vulnerable == true) {
 				Debug.Log ("End of game");
+				PlayerPrefs.SetInt ("Score", score);
+				PlayerPrefs.SetInt ("highScore", highScore);
 				SceneManager.LoadScene ("Lost");
 			}
 		}
