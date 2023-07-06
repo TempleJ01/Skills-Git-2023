@@ -11,14 +11,18 @@ public class EnemyMovement : MonoBehaviour {
 	void Start () {
 		direction = "right";
 		movementSpeed = 5f;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (direction == "right") {
 			transform.Translate (Vector3.right * Time.deltaTime * movementSpeed);
+			transform.localScale = new Vector3 (1, 1, 1);
 		} else if (direction == "left") {
 			transform.Translate (Vector3.left * Time.deltaTime * movementSpeed);
+			transform.localScale = new Vector3 (-1, 1, 1);
+
 		}
 	}
 
